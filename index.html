@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacramento Real Estate Guide & Directory</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 6 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F7FF',
+                            100: '#E0EFFE',
+                            600: '#0284C7',
+                            800: '#075985',
+                            900: '#0C4A6E',
+                            950: '#082F49',
+                        },
+                        gold: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F5F9;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 8px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <div class="bg-brand-950 text-slate-300 text-xs py-2 px-4 border-b border-brand-900">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center text-gold-400 font-semibold">
+                    <i class="fa-solid fa-fire mr-1.5 animate-pulse"></i> Focus Market Notice
+                </span>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="text-slate-300">The Sacramento real estate market is booming!</span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs">
+                <a href="#advertise" class="hover:text-gold-400 transition-colors flex items-center">
+                    <i class="fa-solid fa-rectangle-ad mr-1"></i> Advertise ($1.00/day)
+                </a>
+                <span class="text-slate-600">•</span>
+                <a href="#agents" class="hover:text-gold-400 transition-colors">Directory Listing</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div
+                    class="w-11 h-11 bg-gradient-to-br from-brand-900 to-brand-800 rounded-xl flex items-center justify-center text-gold-400 shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-building-user text-xl"></i>
+                </div>
+                <div>
+                    <span
+                        class="text-xl font-extrabold text-brand-950 tracking-tight block leading-none">Sacramento</span>
+                    <span class="text-[11px] uppercase tracking-widest text-gold-600 font-bold">Real Estate Guide</span>
+                </div>
+            </a>
+
+            <!-- Search Field Header -->
+            <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+                <div class="relative w-full">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+                    <input type="text" id="liveSearchInput"
+                        placeholder="Search realtors, designations, cities, agencies..."
+                        class="w-full bg-slate-100 border border-slate-200 rounded-full py-2 pl-10 pr-4 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-brand-800 focus:bg-white transition-all">
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="flex items-center space-x-3">
+                <a href="#agents"
+                    class="hidden sm:inline-flex items-center text-xs font-bold text-slate-700 hover:text-brand-800 px-3 py-2">
+                    <i class="fa-solid fa-users text-slate-400 mr-2"></i>View Realtors
+                </a>
+                <a href="#advertise"
+                    class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-gold-500/20 transition-all flex items-center">
+                    <i class="fa-solid fa-bullhorn mr-2"></i>Promote Listing
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-brand-950 text-white py-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <!-- Background Architecture Image Overlay -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1920&q=80"
+                alt="Real Estate Architecture" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-brand-950/80 to-transparent z-0"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center space-y-6">
+            <div
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-gold-500/20 text-gold-400 border border-gold-500/30">
+                <i class="fa-solid fa-chart-line mr-2"></i> This Week's Focus Market
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                Sacramento Real Estate Guide
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto font-normal leading-relaxed">
+                The Sacramento real estate market is booming, it is still a great time to purchase a home. Contact a
+                <strong class="text-gold-400 font-semibold underline decoration-gold-500/50">Sacramento Realtor</strong>
+                to see what is available.
+            </p>
+
+            <!-- Agent Quick Filter Bar -->
+            <div class="pt-4 max-w-3xl mx-auto">
+                <div class="glass-panel p-4 rounded-2xl shadow-xl border border-white/20 text-slate-800">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="text-left">
+                            <label
+                                class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">State /
+                                Location</label>
+                            <select id="filterState" onchange="applyFilters()"
+                                class="w-full bg-slate-100 border border-slate-200 rounded-xl p-2.5 text-xs font-medium focus:ring-2 focus:ring-brand-800 focus:outline-none">
+                                <option value="all">All Locations</option>
+                                <option value="California">California</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Illinois">Illinois</option>
+                                <option value="Massachusetts">Massachusetts</option>
+                                <option value="Colorado">Colorado</option>
+                                <option value="North Carolina">North Carolina</option>
+                                <option value="New Jersey">New Jersey</option>
+                                <option value="New York">New York</option>
+                                <option value="Washington">Washington</option>
+                                <option value="Utah">Utah</option>
+                            </select>
+                        </div>
+                        <div class="text-left">
+                            <label
+                                class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">Brokerage
+                                / Agency</label>
+                            <select id="filterAgency" onchange="applyFilters()"
+                                class="w-full bg-slate-100 border border-slate-200 rounded-xl p-2.5 text-xs font-medium focus:ring-2 focus:ring-brand-800 focus:outline-none">
+                                <option value="all">All Agencies</option>
+                                <option value="Keller Williams">Keller Williams</option>
+                                <option value="RE/MAX">RE/MAX</option>
+                                <option value="Coldwell Banker">Coldwell Banker</option>
+                                <option value="Charlesgate">Charlesgate Realty</option>
+                                <option value="Long & Foster">Long & Foster</option>
+                                <option value="EXIT Homeplace">EXIT Homeplace</option>
+                                <option value="Windermere">Windermere</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button onclick="resetFilters()"
+                                class="w-full bg-brand-900 hover:bg-brand-950 text-white font-bold py-2.5 px-4 rounded-xl transition-colors text-xs flex items-center justify-center">
+                                <i class="fa-solid fa-rotate-left mr-2 text-gold-400"></i> Reset Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+            <!-- LEFT COLUMN: Real Estate Pro Guide - State Directory (100% extracted state names) -->
+            <aside class="lg:col-span-3 space-y-6">
+                <div class="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-5 sticky top-24">
+                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+                        <h2 class="font-bold text-brand-950 text-sm flex items-center">
+                            <i class="fa-solid fa-map-location-dot text-gold-500 mr-2"></i> Real Estate Pro Guide
+                        </h2>
+                        <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded-full">50
+                            States</span>
+                    </div>
+
+                    <p class="text-xs text-slate-500 mb-3">Browse verified realtors by state:</p>
+
+                    <!-- Scrollable US States List -->
+                    <div class="max-h-[580px] overflow-y-auto pr-1 space-y-1 custom-scrollbar text-xs font-medium">
+                        <a href="#" onclick="selectStateFilter('Alabama')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Alabama
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Alaska')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Alaska
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Arizona')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Arizona
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Arkansas')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Arkansas
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('California')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg bg-gold-50 text-gold-800 font-bold border-l-2 border-gold-500"><span>California
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-gold-600"></i></a>
+                        <a href="#" onclick="selectStateFilter('Colorado')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Colorado
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Connecticut')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Connecticut
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Delaware')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Delaware
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Florida')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Florida
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Georgia')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Georgia
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Hawaii')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Hawaii
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Idaho')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Idaho
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Illinois')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Illinois
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Indiana')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Indiana
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Iowa')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Iowa
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Kansas')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Kansas
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Kentucky')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Kentucky
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Louisiana')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Louisiana
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Maine')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Maine
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Maryland')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Maryland
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Massachusetts')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Massachusetts</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Michigan')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Michigan
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Minnesota')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Minnesota
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Mississippi')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Mississippi
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Missouri')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Missouri
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Montana')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Montana
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Nebraska')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Nebraska
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Nevada')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Nevada
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('New Hampshire')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>New
+                                Hampshire Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('New Jersey')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>New
+                                Jersey Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('New Mexico')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>New
+                                Mexico Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('New York')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>New
+                                York Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('North Carolina')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>North
+                                Carolina Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('North Dakota')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>North
+                                Dakota Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Ohio')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Ohio
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Oklahoma')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Oklahoma
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Oregon')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Oregon
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Pennsylvania')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Pennsylvania
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Rhode Island')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Rhode
+                                Island Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('South Carolina')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>South
+                                Carolina Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('South Dakota')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>South
+                                Dakota Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Tennessee')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Tennessee
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Texas')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Texas
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Utah')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Utah
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Vermont')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Vermont
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Virginia')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Virginia
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Washington')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Washington
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Washington DC')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Washington
+                                DC Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('West Virginia')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>West
+                                Virginia Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Wisconsin')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Wisconsin
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                        <a href="#" onclick="selectStateFilter('Wyoming')"
+                            class="state-link flex justify-between items-center p-2 rounded-lg hover:bg-slate-100 text-slate-700 hover:text-brand-900 transition-colors"><span>Wyoming
+                                Real Estate</span><i
+                                class="fa-solid fa-chevron-right text-[10px] text-slate-300"></i></a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CENTER COLUMN: Featured Realtors Grid (13 Real Realtors from Image) -->
+            <section id="agents" class="lg:col-span-6 space-y-6">
+
+                <!-- Section Header -->
+                <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+                    <div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-brand-950">This Week's Featured Realtors</h2>
+                        <p class="text-xs text-slate-500 mt-0.5">Directly extracted verified professionals</p>
+                    </div>
+                    <span id="realtorCountBadge"
+                        class="bg-brand-100 text-brand-900 font-bold text-xs px-3 py-1 rounded-full border border-brand-200">
+                        13 Agents Available
+                    </span>
+                </div>
+
+                <!-- Agent Cards Container -->
+                <div id="agentsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <!-- 1. CANDACE "PAIGE" ANDERSON -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="candace paige anderson" data-title="salesperson" data-agency="keller williams"
+                        data-state="Mississippi" data-city="southaven">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    CA
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">CANDACE "PAIGE"
+                                        ANDERSON</h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Salesperson</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Keller Williams Realty
+                                        LLC
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Southaven, <strong
+                                        class="ml-1 font-semibold text-slate-800">Mississippi</strong></p>
+                            </div>
+                        </div>
+                        <button onclick="openAgentModal('CANDACE \" PAIGE\" ANDERSON', 'Salesperson'
+                            , 'Keller Williams Realty LLC' , 'Southaven, Mississippi' )"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 2. TONY BRODIE -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="tony brodie" data-title="manager" data-agency="keller williams" data-state="Texas"
+                        data-city="dallas">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    TB
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">TONY BRODIE</h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Manager</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Keller Williams Realty
+                                        Preston
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Dallas, <strong
+                                        class="ml-1 font-semibold text-slate-800">Texas</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('TONY BRODIE', 'Manager', 'Keller Williams Realty Preston', 'Dallas, Texas')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 3. MICHAEL DIMELLA -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="michael dimella" data-title="managing partner" data-agency="charlesgate"
+                        data-state="Massachusetts" data-city="boston">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    MD
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">MICHAEL DIMELLA
+                                    </h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Managing
+                                        Partner</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Charlesgate Realty Group
+                                        LLC
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Boston, <strong
+                                        class="ml-1 font-semibold text-slate-800">Massachusetts</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('MICHAEL DIMELLA', 'Managing Partner', 'Charlesgate Realty Group LLC', 'Boston, Massachusetts')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 4. AMANDA DIVITO -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="amanda diveto" data-title="associate broker" data-agency="re/max"
+                        data-state="Colorado" data-city="arvada">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    AD
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">AMANDA DIVITO,
+                                        <span class="text-gold-600 text-[10px]">ABR®, CRS®</span></h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Associate
+                                        Broker</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>RE/MAX Alliance
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Arvada, <strong
+                                        class="ml-1 font-semibold text-slate-800">Colorado</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('AMANDA DIVITO, ABR®, CRS®', 'Associate Broker', 'RE/MAX Alliance', 'Arvada, Colorado')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 5. KOKI ADASI-EFUYA -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="koki adasi-efuya" data-title="salesperson" data-agency="long & foster"
+                        data-state="Maryland" data-city="rockville">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    KA
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">KOKI ADASI-EFUYA
+                                    </h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Salesperson</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Long & Foster Real Estate
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Rockville, <strong
+                                        class="ml-1 font-semibold text-slate-800">Maryland</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('KOKI ADASI-EFUYA', 'Salesperson', 'Long & Foster Real Estate', 'Rockville, Maryland')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 6. JULIE PIRST -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="julie pirst" data-title="associate vice president" data-agency="sheldon good"
+                        data-state="Illinois" data-city="chicago">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    JP
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">JULIE PIRST</h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5 truncate max-w-[140px]">AVP
+                                        Project Mgmt</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Sheldon Good & Co.
+                                        Auctions
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Chicago, <strong
+                                        class="ml-1 font-semibold text-slate-800">Illinois</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('JULIE PIRST', 'AVP of Project Management', 'Sheldon Good & Co. Auctions', 'Chicago, Illinois')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 7. EUGENE FU -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="eugene fu" data-title="salesperson" data-agency="@properties" data-state="Illinois"
+                        data-city="chicago">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    EF
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">EUGENE FU</h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Salesperson</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>@properties
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Chicago, <strong
+                                        class="ml-1 font-semibold text-slate-800">Illinois</strong></p>
+                            </div>
+                        </div>
+                        <button onclick="openAgentModal('EUGENE FU', 'Salesperson', '@properties', 'Chicago, Illinois')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 8. STEPHANIE GASPAROVIC -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="stephanie gasparovic" data-title="associate broker" data-agency="exit homeplace"
+                        data-state="North Carolina" data-city="hampstead">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    SG
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">STEPHANIE
+                                        GASPAROVIC</h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Associate
+                                        Broker</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>EXIT Homeplace Realty
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Hampstead, <strong
+                                        class="ml-1 font-semibold text-slate-800">North Carolina</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('STEPHANIE GASPAROVIC', 'Associate Broker', 'EXIT Homeplace Realty', 'Hampstead, North Carolina')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 9. APRIL HARTMANN -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="april hartmann" data-title="salesperson" data-agency="coldwell banker"
+                        data-state="New Jersey" data-city="fort lee">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    AH
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">APRIL HARTMANN
+                                    </h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Salesperson</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Coldwell Banker
+                                        Residential Brokerage
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Fort Lee, <strong
+                                        class="ml-1 font-semibold text-slate-800">New Jersey</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('APRIL HARTMANN', 'Salesperson', 'Coldwell Banker Residential Brokerage', 'Fort Lee, New Jersey')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 10. MADISON HILDEBRAND -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="madison hildebrand" data-title="salesperson" data-agency="coldwell banker"
+                        data-state="California" data-city="malibu">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    MH
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">MADISON
+                                        HILDEBRAND</h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Salesperson</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Coldwell Banker Malibu
+                                        West
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Malibu, <strong
+                                        class="ml-1 font-semibold text-slate-800">California</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('MADISON HILDEBRAND', 'Salesperson', 'Coldwell Banker Malibu West', 'Malibu, California')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 11. JENNIFER ISAAC -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="jennifer isaac" data-title="associate broker" data-agency="re/max"
+                        data-state="New York" data-city="fairport">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    JI
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">JENNIFER ISAAC,
+                                        <span class="text-gold-600 text-[10px]">GRI</span></h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Associate
+                                        Broker</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>RE/MAX Advance
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Fairport, <strong
+                                        class="ml-1 font-semibold text-slate-800">New York</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('JENNIFER ISAAC, GRI', 'Associate Broker', 'RE/MAX Advance', 'Fairport, New York')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 12. BEN KINNEY -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between"
+                        data-name="ben kinney" data-title="salesperson" data-agency="keller williams"
+                        data-state="Washington" data-city="bellingham">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    BK
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">BEN KINNEY, <span
+                                            class="text-gold-600 text-[10px]">ABR®</span></h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Salesperson</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Keller Williams Realty
+                                        Bellingham
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Bellingham, <strong
+                                        class="ml-1 font-semibold text-slate-800">Washington</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('BEN KINNEY, ABR®', 'Salesperson', 'Keller Williams Realty Bellingham', 'Bellingham, Washington')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                    <!-- 13. BRADY KOHLER -->
+                    <div class="agent-card bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-xl hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between sm:col-span-2 lg:col-span-1"
+                        data-name="brady kohler" data-title="broker-owner" data-agency="windermere" data-state="Utah"
+                        data-city="utah">
+                        <div>
+                            <div class="flex items-start space-x-3 mb-3">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-brand-900 font-bold text-lg border border-slate-200 flex-shrink-0">
+                                    BK
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <h3 class="font-bold text-slate-900 text-sm leading-snug truncate">BRADY KOHLER,
+                                        <span class="text-gold-600 text-[10px]">CRB, GRI</span></h3>
+                                    <span
+                                        class="inline-block bg-slate-100 text-slate-600 text-[10px] px-2 py-0.5 rounded font-semibold mt-0.5">Broker-Owner</span>
+                                    <p class="text-xs text-brand-800 font-semibold mt-1">
+                                        <i class="fa-solid fa-building mr-1 text-gold-500"></i>Windermere Real Estate
+                                        Utah
+                                    </p>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 text-xs text-slate-600 mb-4 space-y-1">
+                                <p class="flex items-center"><i
+                                        class="fa-solid fa-location-dot text-slate-400 mr-2"></i>Statewide, <strong
+                                        class="ml-1 font-semibold text-slate-800">Utah</strong></p>
+                            </div>
+                        </div>
+                        <button
+                            onclick="openAgentModal('BRADY KOHLER, CRB, GRI', 'Broker-Owner', 'Windermere Real Estate Utah', 'Utah')"
+                            class="w-full bg-slate-100 hover:bg-brand-950 hover:text-white text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors">
+                            Contact Agent
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: Promotional & Side Cards (Extracted text) -->
+            <aside id="advertise" class="lg:col-span-3 space-y-6">
+
+                <!-- Card 1: Advertise Your Business -->
+                <div
+                    class="bg-gradient-to-br from-brand-950 to-brand-900 text-white rounded-2xl p-6 shadow-lg border border-brand-800 relative overflow-hidden">
+                    <div class="absolute -right-8 -bottom-8 w-28 h-28 bg-gold-500/20 rounded-full blur-xl"></div>
+
+                    <span
+                        class="inline-block bg-gold-500 text-white text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full mb-3">
+                        Featured Placement
+                    </span>
+
+                    <h3 class="text-lg font-extrabold leading-snug mb-2">
+                        Advertise Your Business On This Page
+                    </h3>
+
+                    <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                        For as little as <strong class="text-gold-400 font-bold">$1.00 per day ($30.00 per
+                            month)</strong>.
+                    </p>
+
+                    <div
+                        class="bg-white/10 rounded-xl p-3 backdrop-blur-sm text-xs space-y-2 mb-5 border border-white/10">
+                        <p class="text-slate-200">
+                            If you are reading this, so are your customers - and your competitor's customers.
+                        </p>
+                        <p class="font-bold text-gold-300">
+                            Promote Your Own Site Online!
+                        </p>
+                    </div>
+
+                    <button onclick="openAdModal()"
+                        class="w-full bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-600 text-white font-bold py-3 px-4 rounded-xl text-xs transition-all shadow-md shadow-gold-500/20 text-center block">
+                        Get Started Today
+                    </button>
+                </div>
+
+                <!-- Card 2: Bad Bugs Advisory Box -->
+                <div class="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-5 shadow-sm space-y-2">
+                    <div class="flex items-center space-x-2 text-amber-900 font-bold text-xs">
+                        <i class="fa-solid fa-bug text-amber-600"></i>
+                        <h4>Home Advisory Notice</h4>
+                    </div>
+                    <p class="text-xs text-amber-950/80 leading-relaxed">
+                        <strong class="font-semibold text-amber-900">Bad Bugs</strong> are becoming a problem throughout
+                        the US. Contact your local pest control company for more information about bed bugs and how to
+                        control them.
+                    </p>
+                </div>
+
+                <!-- Quick Stats Badge -->
+                <div class="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm text-center">
+                    <p class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Directory Coverage</p>
+                    <p class="text-2xl font-extrabold text-brand-950 mt-1">50,000+</p>
+                    <p class="text-xs text-slate-500">Realtors & Brokers Listed Nationwide</p>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="bg-brand-950 text-slate-400 text-xs border-t border-brand-900 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2 text-white">
+                        <i class="fa-solid fa-building-user text-gold-400"></i>
+                        <span class="font-bold text-sm">Sacramento Real Estate Guide</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Connecting homebuyers and sellers with verified realtors across Sacramento and all 50 US states.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Directory Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#agents" class="hover:text-gold-400 transition-colors">Featured Realtors</a></li>
+                        <li><a href="#states" class="hover:text-gold-400 transition-colors">State Search</a></li>
+                        <li><a href="#advertise" class="hover:text-gold-400 transition-colors">Advertising Plans</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Brokerages</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Keller Williams</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">RE/MAX Network</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Coldwell Banker</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Inquiries</h4>
+                    <p class="mb-2">Questions about advertising or agent placement?</p>
+                    <button onclick="openAdModal()" class="text-gold-400 font-bold hover:underline">
+                        Contact Support &rarr;
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-brand-900 pt-6 text-center text-slate-500">
+                <p>&copy; 2026 Sacramento Real Estate Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Agent Contact Modal -->
+    <div id="agentModal"
+        class="fixed inset-0 bg-brand-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-slate-100">
+            <button onclick="closeModal('agentModal')"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-700">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="text-center">
+                <div
+                    class="w-16 h-16 bg-brand-50 text-brand-900 rounded-full flex items-center justify-center mx-auto mb-3 text-xl font-bold border border-brand-200">
+                    <i class="fa-solid fa-user-tie text-gold-500"></i>
+                </div>
+                <h3 id="modalAgentName" class="text-lg font-bold text-brand-950">Agent Name</h3>
+                <span id="modalAgentTitle"
+                    class="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-semibold">Title</span>
+                <p id="modalAgentAgency" class="text-xs font-bold text-gold-600 mt-2">Agency</p>
+                <p id="modalAgentLocation" class="text-xs text-slate-500 mb-5">Location</p>
+
+                <div class="bg-slate-50 p-3 rounded-xl text-xs space-y-2 text-left mb-5 border border-slate-100">
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Listing Status:</span>
+                        <span class="font-bold text-emerald-600">Active Verified</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-400">Direct Phone:</span>
+                        <span class="font-medium text-slate-800">(800) 555-REAL</span>
+                    </div>
+                </div>
+
+                <button onclick="alert('Message sent successfully!'); closeModal('agentModal');"
+                    class="w-full bg-brand-950 hover:bg-brand-900 text-white font-bold py-2.5 rounded-xl text-xs transition-all shadow-md">
+                    Send Direct Message
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advertise Modal -->
+    <div id="adModal"
+        class="fixed inset-0 bg-brand-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-slate-100">
+            <button onclick="closeModal('adModal')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gold-500 text-white rounded-xl flex items-center justify-center font-bold">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold text-brand-950">Advertise Your Business</h3>
+                        <p class="text-xs text-slate-500">For as little as $1.00/day ($30.00/month)</p>
+                    </div>
+                </div>
+
+                <form
+                    onsubmit="event.preventDefault(); alert('Thank you! Our sales representative will contact you.'); closeModal('adModal');"
+                    class="space-y-3">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 mb-1 uppercase">Full Name</label>
+                        <input type="text" required placeholder="John Doe"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-brand-800 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 mb-1 uppercase">Business or
+                            Agency</label>
+                        <input type="text" required placeholder="Sacramento Realty"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-brand-800 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-600 mb-1 uppercase">Email Address</label>
+                        <input type="email" required placeholder="agent@realty.com"
+                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-brand-800 outline-none">
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-gold-500 hover:bg-gold-600 text-white font-bold py-2.5 rounded-xl text-xs transition-all shadow-md mt-2">
+                        Submit Advertising Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Filtering Logic -->
+    <script>
+        function openAgentModal(name, title, agency, location) {
+            document.getElementById('modalAgentName').innerText = name;
+            document.getElementById('modalAgentTitle').innerText = title;
+            document.getElementById('modalAgentAgency').innerText = agency;
+            document.getElementById('modalAgentLocation').innerText = location;
+
+            const modal = document.getElementById('agentModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function openAdModal() {
+            const modal = document.getElementById('adModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function applyFilters() {
+            const selectedState = document.getElementById('filterState').value;
+            const selectedAgency = document.getElementById('filterAgency').value;
+            const cards = document.querySelectorAll('.agent-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const cardState = card.getAttribute('data-state');
+                const cardAgency = card.getAttribute('data-agency');
+
+                const stateMatch = (selectedState === 'all' || cardState === selectedState);
+                const agencyMatch = (selectedAgency === 'all' || cardAgency.toLowerCase().includes(selectedAgency.toLowerCase()));
+
+                if (stateMatch && agencyMatch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('realtorCountBadge').innerText = `${visibleCount} Agents Available`;
+        }
+
+        function selectStateFilter(stateName) {
+            const stateSelect = document.getElementById('filterState');
+            let matched = false;
+            for (let option of stateSelect.options) {
+                if (option.value === stateName) {
+                    stateSelect.value = stateName;
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
+                stateSelect.value = 'all';
+            }
+            applyFilters();
+            document.getElementById('agents').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            document.getElementById('filterState').value = 'all';
+            document.getElementById('filterAgency').value = 'all';
+            document.getElementById('liveSearchInput').value = '';
+            applyFilters();
+        }
+
+        // Live Search Input Handler
+        document.getElementById('liveSearchInput').addEventListener('input', function (e) {
+            const query = e.target.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.agent-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('realtorCountBadge').innerText = `${visibleCount} Agents Available`;
+        });
+    </script>
+</body>
+
+</html>
